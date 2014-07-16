@@ -1,0 +1,12 @@
+{
+  "name": "misc",
+  "main": "./lib/main",
+  "version": "1.0.0",
+  "author": "Chris Holland (https://github.com/Zren/)",
+  "description": "Miscellanious improvements for Atom.",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {}
+}
