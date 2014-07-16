@@ -1,0 +1,12 @@
+REGEDIT4
+
+[HKEY_CLASSES_ROOT\apm]
+@="URL:Atom Package Manager Protocol"
+"URL Protocol"=""
+
+[HKEY_CLASSES_ROOT\apm\shell]
+
+[HKEY_CLASSES_ROOT\apm\shell\open]
+
+[HKEY_CLASSES_ROOT\apm\shell\open\command]
+@="\"C:\\Program Files\\nodejs\\node.exe\" \"C:\\Users\\Admin\\.atom\\packages\\misc\\bin\\apmUriHandler.js\" \"%1\""
