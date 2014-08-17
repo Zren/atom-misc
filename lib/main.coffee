@@ -72,17 +72,13 @@ module.exports =
     menu = {
       label: 'Config'
       submenu: [
-        {
-          label: 'User'
-          submenu: [
-            { label: 'Config', command: 'application:open-your-config' }
-            { label: 'Init Script', command: 'application:open-your-init-script' }
-            { label: 'Keymap', command: 'application:open-your-keymap' }
-            { label: 'Snippets', command: 'application:open-your-snippets' }
-            { label: 'Stylesheet', command: 'application:open-your-stylesheet' }
-          ]
-        }
+        { label: 'Config – User', command: 'application:open-your-config' }
         { label: 'Config – Syntax', command: 'misc:open-active-editor-grammar-config' }
+        { type: 'separator' }
+        { label: 'Init Script – User', command: 'application:open-your-init-script' }
+        { label: 'Keymap – User', command: 'application:open-your-keymap' }
+        { label: 'Snippets – User', command: 'application:open-your-snippets' }
+        { label: 'Stylesheet – User', command: 'application:open-your-stylesheet' }
       ]
     }
 
@@ -96,10 +92,6 @@ module.exports =
         # Insert before
         atom.menu.template.splice(index, 0, @newConfigMenu())
         break
-
-  getGrammarConfig: (scopeName) ->
-    return _.valueForKeyPath(atom.config.settings, 'syntax-settings.' + scopeName)
-
 
   defaultGrammarConfig: {
     editorSettings:
@@ -164,7 +156,7 @@ module.exports =
       coffeeGrammar = atom.syntax.grammarsByScopeName['source.coffee']
       editor.setGrammar(coffeeGrammar) if coffeeGrammar
 
-      grammarConfig = @getGrammarConfig(scopeName)
+      grammarConfig = _.valueForKeyPath(atom.config.settings, 'syntax-settings.' + scopeName)
       console.log {grammarConfig}
       if grammarConfig
         text = @grammarConfigCson(grammarConfig)
